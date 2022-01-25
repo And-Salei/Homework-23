@@ -27,7 +27,7 @@
             </h1>
 
            
-            <p class='fs-2 text-center m-0'>Осталось попыток: <output>-</output></p>
+            <p class='fs-2 text-center m-0'>Осталось попыток: <outpu id="placeNumber">-</output></p>
 
             
             <div class="row my-4 fs-4">
@@ -35,8 +35,8 @@
                 <div class="col d-flex align-items-center">
 
                     <h3 class='my-1 flex-grow-2 mx-5'>Ваш вариант: </h3>
-                    <input type="number" class='flex-grow-1 mx-5' id="userBet" min="0" max="9999" step='10' value="0">
-                    <button onclick="play()" class="flex-grow-1 mx-4 fs-5 me-3 ms-3 mt-0 btn btn-outline-dark" my-4 w-100 p-2' id='gameButton'>
+                    <input type="number" class='flex-grow-1 mx-5' id="userNumber" min="0" max="100" step='1' value="1">
+                    <button onclick="play()" class="flex-grow-1 mx-4 fs-5 me-3 ms-3 mt-0 btn btn-outline-dark" id='gameButton'>
                      Дать ответ
                     </button>
                    
@@ -45,7 +45,7 @@
                 
             </div>
         
-            <h3 class='my-4 text-center'>Ваш вариант <output id="resultPlaceNumber">-</output> меньше моего числа</h3>
+            <h3 id="win" class='my-4 text-center'>Ваш вариант <output id="resultPlaceNumber">-</output> моего числа</h3>
 
             
 

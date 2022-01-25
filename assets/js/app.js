@@ -1,37 +1,32 @@
 function gen() {
-    let result = Math.random();
-    result = result * 6;
-    result = Math.floor(result) + 1;
-    return result;
+    let secret = Math.random();
+    secret = secret * 100;
+    secret = Math.floor(secret) + 1;
+    return secret;
 }
 
-let balance = 10000;
-
+let counter = 1;
 function play() {
-    let bet = +userBet.value;
-    let option = +userOption.value;
-    if (bet > balance) {
-        messagePlace.innerHTML = 'Need More Money!';
-        return;
+    let variant = +userNumber.value;
+    if (counter > 10) {placeNumber.innerHTML = `${counter}`;
+    counter++;
+    return counter;
     }
 
-    let dice1 = gen ();
-    let dice2 = gen ();
-
-    dice1Image.src = `./assets/images/${dice1}.png`;
-    dice2Image.src = `./assets/images/${dice2}.png`;
-
-    if(option == (dice1 + dice2)) {
-        balance = balance + bet;
-        messagePlace.innerHTML = `Вы выиграли ${bet} грн.`;
+   
+   if(secret == variant) {
+        win.innerHTML = `Вы выиграли!`;
+        return variant;
+    }
+    else if (secret > variant){
+        resultPlaceNumber.innerHTML = `${variant} больше`;
     }
     else {
-        balance = balance - bet;
-        messagePlace.innerHTML = `Вы проиграли ${bet} грн.`;
+        resultPlaceNumber.innerHTML = `${variant} меньше`; 
     }
-    
-    userBalance.innerHTML = balance;
 }
+    
+
 
 
     
