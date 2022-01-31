@@ -1,30 +1,29 @@
-function gen() {
+
     let secret = Math.random();
     secret = secret * 100;
     secret = Math.floor(secret) + 1;
-    return secret;
-}
+    return;
+
 
 let counter = 1;
 function play() {
-    let variant = +userNumber.value;
-    if (counter > 10) {placeNumber.innerHTML = `${counter}`;
-    counter++;
-    return counter;
+        let variant = +userNumber.value;
+    if (counter > 10) {placeNumber.innerHTML = `${secret}`;
+        counter++;
+        return;
     }
-
-   
-   if(secret == variant) {
+    else{   
+    if(secret == variant) {
         win.innerHTML = `Вы выиграли!`;
-        return variant;
+        return;
     }
     else if (secret > variant){
-        resultPlaceNumber.innerHTML = `${variant} больше`;
+        resultPlaceNumber.innerHTML = `${variant}. Загаданное число больше`;
     }
     else {
-        resultPlaceNumber.innerHTML = `${variant} меньше`; 
+        resultPlaceNumber.innerHTML = `${variant}. Загаданное число меньше`; 
     }
-}
+}}
     
 
 
