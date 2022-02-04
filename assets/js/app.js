@@ -1,31 +1,53 @@
 
-    let secret = Math.random();
-    secret = secret * 100;
+
+
+    let secret = Math.random() * 100; 
     secret = Math.floor(secret) + 1;
-    return;
 
+    let isFail = true;
 
-let counter = 1;
-function play() {
-        let variant = +userNumber.value;
-    if (counter > 10) {placeNumber.innerHTML = `${secret}`;
-        counter++;
-        return;
+    let lives = 10;
+
+    function game(){
+
+        let possibleAnswer = version.value;
+
+        if(lives < 1){
+            endGame.classList.add(`animate__animated`);
+            endGame.classList.add(`animate__flash`);
+            endGame.innerHTML = `Проигрыш! У Вас закончились попытки! Мое загаданое число - ${secret}`;
+            endGame.style.color = `red`;
+
+            return
+        }
+
+        else{
+
+            if(secret == possibleAnswer) {
+               
+                userVersion.innerHTML = `- ${possibleAnswer}.`;
+                endGame.classList.add(`animate__heartBeat`);
+                endGame.classList.add(`animate__heartBeat`);
+                endGame.innerHTML = `Победа! Вы угадали загаданное число!`;
+                endGame.style.color = `green`;
+
+                gameBut.classList.add(`invisible`);
+                
+                return
+                
+            
+            } else if(secret > possibleAnswer) {
+                
+                lives--;
+                live.innerHTML = `${lives}`;
+                userVersion.innerHTML = `- ${possibleAnswer}. Загаданное число больше`;
+            } else {
+                
+                lives--;
+                live.innerHTML = `${lives}`;
+                userVersion.innerHTML = `- ${possibleAnswer}. Загаданное число меньше`;
+            }
+        }
+
     }
-    else{   
-    if(secret == variant) {
-        win.innerHTML = `Вы выиграли!`;
-        return;
-    }
-    else if (secret > variant){
-        resultPlaceNumber.innerHTML = `${variant}. Загаданное число больше`;
-    }
-    else {
-        resultPlaceNumber.innerHTML = `${variant}. Загаданное число меньше`; 
-    }
-}}
-    
 
-
-
-    
